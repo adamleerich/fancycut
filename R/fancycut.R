@@ -13,8 +13,8 @@
 #'   If FALSE will return a character vector.
 #'
 #' @examples
-#' fancycut(-10:10, c('(0,2]','(2,5)','[5,10]'), c('Small','Medium','Large'))
-#' fancycut(-10:10, c('[0,0]','(0,2]','(2,5)','[5,10]'), c('Zero','Small','Medium','Large'))
+fancycut(-10:10, c('(0,2]','(2,5)','[5,10]'), c('Small','Medium','Large'))
+fancycut(-10:10, c('[0,0]','(0,2]','(2,5)','[5,10]'), c('Zero','Small','Medium','Large'))
 #' @export
 fancycut <- function(x, intervals, buckets = intervals,
                      na.bucket = NA, unmatched.bucket = NA,
