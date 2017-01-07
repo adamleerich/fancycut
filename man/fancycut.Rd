@@ -4,8 +4,8 @@
 \alias{fancycut}
 \title{Like \code{cut}, turn a vector of numbers into a factor}
 \usage{
-fancycut(x, intervals, buckets, na.bucket = NA, unmatched.bucket = NA,
-  out.as.factor = TRUE)
+fancycut(x, intervals, buckets = intervals, na.bucket = NA,
+  unmatched.bucket = NA, out.as.factor = TRUE, ...)
 }
 \arguments{
 \item{x}{a numeric vector}
@@ -27,10 +27,16 @@ these have a 1-1 correspondence with \code{intervals}}
 Like \code{cut}, turn a vector of numbers into a factor
 }
 \examples{
-x <- round(runif(1000, 0, 10))
-intervals <- c('(0,2]','(2,5)','[5,10]')
-buckets <- c('Small','Medium','Large')
-fc <- fancycut(x, intervals, buckets)
-df <- data.frame(x, fc)
+fancycut(-10:10, c('(0,2]','(2,5)','[5,10]'), c('Small','Medium','Large'))
+fancycut(-10:10, c('[0,0]','(0,2]','(2,5)','[5,10]'), c('Zero','Small','Medium','Large'))
+fancycut(
+  x = -10:10,
+  Zero = 0,
+  Small = '(0,2]',
+  Medium = '(2,5)',
+  Large = '[5,10]'
+)
+fancycut(-10:10, c('(0,2]','(2,5)','[5,10]'), c('Small','Medium','Large'))
+fancycut(-10:10, c('[0,0]','(0,2]','(2,5)','[5,10]'), c('Zero','Small','Medium','Large'))
 }
 

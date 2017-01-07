@@ -5,6 +5,5 @@ Authors@R: person("Adam", "Rich", email = "adamleerich@gmail.com", role = c("aut
 Description: Provides the function fancycut which is like cut except
   you can mix left open and right open intervals with point values,
   intervals that are closed on both ends and intervals that are open on both ends.
-Depends: R (>= 3.2.2)
 License: CC0
 LazyData: true
