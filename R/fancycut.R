@@ -11,6 +11,11 @@
 #'   default is TRUE
 #'   Should the resulting vector be a factor?
 #'   If FALSE will return a character vector.
+#' @param ...
+#'   These take the form \code{tag = value}.
+#'   Tags become the bucket names and values the interval definitions.
+#'   If args are passed in this way \code{intervals} and \code{buckets}
+#'   are both ignored.
 #'
 #' @examples
 #' fancycut(-10:10, c('(0,2]','(2,5)','[5,10]'), c('Small','Medium','Large'))
