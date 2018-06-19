@@ -4,16 +4,11 @@
 \alias{fancycut}
 \title{Like \code{cut}, turn a vector of numbers into a factor}
 \usage{
-fancycut(x, intervals, buckets = intervals, na.bucket = NA,
-  unmatched.bucket = NA, out.as.factor = TRUE, ...)
+fancycut(x, na.bucket = NA, unmatched.bucket = NA, out.as.factor = TRUE,
+  ...)
 }
 \arguments{
 \item{x}{a numeric vector}
-
-\item{intervals}{a character vector of intervals}
-
-\item{buckets}{a character vector of levels for the new factor
-these have a 1-1 correspondence with \code{intervals}}
 
 \item{na.bucket}{what level should NA values be given?}
 
@@ -24,16 +19,12 @@ Should the resulting vector be a factor?
 If FALSE will return a character vector.}
 
 \item{...}{These take the form \code{tag = value}.
-Tags become the bucket names and values the interval definitions.
-If args are passed in this way \code{intervals} and \code{buckets}
-are both ignored.}
+Tags become the bucket names and values the interval definitions.}
 }
 \description{
 Like \code{cut}, turn a vector of numbers into a factor
 }
 \examples{
-fancycut(-10:10, c('(0,2]','(2,5)','[5,10]'), c('Small','Medium','Large'))
-fancycut(-10:10, c('[0,0]','(0,2]','(2,5)','[5,10]'), c('Zero','Small','Medium','Large'))
 fancycut(
   x = -10:10,
   Zero = 0,
@@ -41,7 +32,4 @@ fancycut(
   Medium = '(2,5)',
   Large = '[5,10]'
 )
-fancycut(-10:10, c('(0,2]','(2,5)','[5,10]'), c('Small','Medium','Large'))
-fancycut(-10:10, c('[0,0]','(0,2]','(2,5)','[5,10]'), c('Zero','Small','Medium','Large'))
 }
-

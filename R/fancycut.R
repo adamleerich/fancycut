@@ -1,9 +1,6 @@
 #' Like \code{cut}, turn a vector of numbers into a factor
 #'
 #' @param x           a numeric vector
-#' @param intervals   a character vector of intervals
-#' @param buckets     a character vector of levels for the new factor
-#'   these have a 1-1 correspondence with \code{intervals}
 #' @param na.bucket   what level should NA values be given?
 #' @param unmatched.bucket
 #'   what level should numbers not covered by an interval be given?
@@ -14,12 +11,8 @@
 #' @param ...
 #'   These take the form \code{tag = value}.
 #'   Tags become the bucket names and values the interval definitions.
-#'   If args are passed in this way \code{intervals} and \code{buckets}
-#'   are both ignored.
 #'
 #' @examples
-#' fancycut(-10:10, c('(0,2]','(2,5)','[5,10]'), c('Small','Medium','Large'))
-#' fancycut(-10:10, c('[0,0]','(0,2]','(2,5)','[5,10]'), c('Zero','Small','Medium','Large'))
 #' fancycut(
 #'   x = -10:10,
 #'   Zero = 0,
@@ -27,11 +20,8 @@
 #'   Medium = '(2,5)',
 #'   Large = '[5,10]'
 #' )
-#' fancycut(-10:10, c('(0,2]','(2,5)','[5,10]'), c('Small','Medium','Large'))
-#' fancycut(-10:10, c('[0,0]','(0,2]','(2,5)','[5,10]'), c('Zero','Small','Medium','Large'))
 #' @export
-fancycut <- function(x, intervals, buckets = intervals,
-                     na.bucket = NA, unmatched.bucket = NA,
+fancycut <- function(x, na.bucket = NA, unmatched.bucket = NA,
                      out.as.factor = TRUE, ...) {
 
   # Handle dots first
@@ -41,6 +31,43 @@ fancycut <- function(x, intervals, buckets = intervals,
     buckets <- names(dots)
     intervals <- as.character(dots)
   }
+
+  return(wafflecut(
+    x = x,
+    intervals = intervals,
+    buckets = buckets,
+    na.bucket = na.bucket,
+    unmatched.bucket = unmatched.bucket,
+    out.as.factor = out.as.factor
+  ))
+
+}
+
+
+
+#' Like \code{cut}, turn a vector of numbers into a factor
+#'
+#' @param x           a numeric vector
+#' @param intervals   a character vector of intervals
+#' @param buckets     a character vector of levels for the new factor
+#'   these have a 1-1 correspondence with \code{intervals}
+#' @param na.bucket   what level should NA values be given?
+#' @param unmatched.bucket
+#'   what level should numbers not covered by an interval be given?
+#' @param out.as.factor
+#'   default is TRUE
+#'   Should the resulting vector be a factor?
+#'   If FALSE will return a character vector.
+#'
+#' @examples
+#' wafflecut(-10:10, c('(0,2]','(2,5)','[5,10]'), c('Small','Medium','Large'))
+#' wafflecut(-10:10, c('[0,0]','(0,2]','(2,5)','[5,10]'), c('Zero','Small','Medium','Large'))
+#' wafflecut(-10:10, c('(0,2]','(2,5)','[5,10]'), c('Small','Medium','Large'))
+#' wafflecut(-10:10, c('[0,0]','(0,2]','(2,5)','[5,10]'), c('Zero','Small','Medium','Large'))
+#' @export
+wafflecut <- function(x, intervals, buckets = intervals,
+                     na.bucket = NA, unmatched.bucket = NA,
+                     out.as.factor = TRUE) {
 
   # Make sure that intervals and buckets are the same length
   l <- length(intervals)
@@ -101,4 +128,6 @@ fancycut <- function(x, intervals, buckets = intervals,
     return(out)
   }
 }
+
+
 

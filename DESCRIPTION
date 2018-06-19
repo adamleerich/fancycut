@@ -7,5 +7,5 @@ Description: Provides the function fancycut() which is like cut() except
   intervals that are closed on both ends and intervals that are open on both ends.
 License: CC0
 LazyData: true
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1
 Suggests: testthat
