@@ -16,10 +16,34 @@
 #' fancycut(
 #'   x = -10:10,
 #'   Zero = 0,
-#'   Small = '(0,2]',
-#'   Medium = '(2,5)',
-#'   Large = '[5,10]'
+#'   Small = '[0,2)',
+#'   Medium = '[2,5]',
+#'   Large = '(5,10]'
 #' )
+#'
+#' # The following examples are from Richie Cotton via
+#' # https://www.rdocumentation.org/packages/fancycut/versions/0.1.1/topics/fancycut
+#'
+#' # The tag = value syntax is useful.
+#' x <- seq.int(0, 1, 0.25)
+#' fancycut(x, low = '[0, 0.5]', high = '(0.5, 1]')
+#'
+#' # Not all the values have to live in a bucket.
+#' x <- seq.int(0, 1, 0.25)
+#' fancycut(x, low = '(0.2, 0.3]', high = '(0.7, 0.8)')
+#'
+#' # You can use unmatched.bucket to deal with these other intervals.
+#' x <- seq.int(0, 1, 0.25)
+#' fancycut(x, low = '(0.2, 0.3]', high = '(0.7, 0.8)', unmatched.bucket = 'other')
+#'
+#' # To match a specific value, make the lower and upper bound the same number.
+#' x <- seq.int(0, 1, 0.25)
+#' fancycut(x, low = '[0, 0.5)', half = '[0.5,0.5]', high = '(0.5, 1]')
+#'
+#' # To match NA values, use na.bucket.
+#' x2 <- c(seq.int(0, 1, 0.25), NA)
+#' fancycut(x2, low = '[0, 0.5)', high = '[0.5, 1]', na.bucket = 'missing')
+#'
 #' @export
 fancycut <- function(x, na.bucket = NA, unmatched.bucket = NA,
                      out.as.factor = TRUE, ...) {
@@ -60,10 +84,33 @@ fancycut <- function(x, na.bucket = NA, unmatched.bucket = NA,
 #'   If FALSE will return a character vector.
 #'
 #' @examples
-#' wafflecut(-10:10, c('(0,2]','(2,5)','[5,10]'), c('Small','Medium','Large'))
+#'
+#'
+#' wafflecut(-10:10, c('[0,2)','[2,5)','[5,10]'), c('Small','Medium','Large'))
+#'
 #' wafflecut(-10:10, c('[0,0]','(0,2]','(2,5)','[5,10]'), c('Zero','Small','Medium','Large'))
-#' wafflecut(-10:10, c('(0,2]','(2,5)','[5,10]'), c('Small','Medium','Large'))
-#' wafflecut(-10:10, c('[0,0]','(0,2]','(2,5)','[5,10]'), c('Zero','Small','Medium','Large'))
+#'
+#' wafflecut(-10:10, c('[0,2)','[2,5)','[5,10]'), c('Small','Medium','Large'))
+#'
+#' wafflecut(-10:10, c('[0,0]','[0,2]','(2,5)','[5,10]'), c('Zero','Small','Medium','Large'))
+#'
+#'
+#' # The following examples are from Richie Cotton via
+#' # https://www.rdocumentation.org/packages/fancycut/versions/0.1.1/topics/fancycut
+#'
+#' # Not all the values have to live in a bucket.
+#' x <- seq.int(0, 1, 0.25)
+#' wafflecut(x, c('(0.2, 0.3)', '(0.7, 0.8)'), c('low', 'high'))
+#'
+#' # You can use unmatched.bucket to deal with these other intervals.
+#' x <- seq.int(0, 1, 0.25)
+#' wafflecut(x, c('(0.2, 0.3)', '(0.7, 0.8)'), c('low', 'high'), unmatched.bucket = 'other')
+#'
+#' # To match NA values, use na.bucket.
+#' x2 <- c(seq.int(0, 1, 0.25), NA)
+#' wafflecut(x2, c('[0, 0.5)', '[0.5, 1]'), c('low', 'high'), na.bucket = 'missing')
+#'
+#'
 #' @export
 wafflecut <- function(x, intervals, buckets = intervals,
                      na.bucket = NA, unmatched.bucket = NA,
