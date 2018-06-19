@@ -1,6 +1,6 @@
 Package: fancycut
 Title: A Fancy Version of 'base::cut'
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: person("Adam", "Rich", email = "adamleerich@gmail.com", role = c("aut", "cre"))
 Description: Provides the function fancycut() which is like cut() except
   you can mix left open and right open intervals with point values,
@@ -8,3 +8,4 @@ Description: Provides the function fancycut() which is like cut() except
 License: CC0
 LazyData: true
 RoxygenNote: 5.0.1
+Suggests: testthat

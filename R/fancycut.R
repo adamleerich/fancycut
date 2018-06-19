@@ -48,7 +48,7 @@ fancycut <- function(x, intervals, buckets = intervals,
     stop('FancyCut requires a 1-1 map from intervals to buckets')
   }
 
-  # Make suer that x is numeric
+  # Make sure that x is numeric
   if (!is.numeric(x))
     stop("'x' must be numeric")
 
@@ -77,8 +77,17 @@ fancycut <- function(x, intervals, buckets = intervals,
     out[mask] <- b
   }
 
-  out[is.na(out)]  <- unmatched.bucket
-  out[is.na(x)]    <- na.bucket
+  if (sum(is.na(x)) == 0L) {
+    na.bucket <- NULL
+  } else {
+    out[is.na(x)]  <- na.bucket
+  }
+
+  if (sum(is.na(out)) == 0L) {
+    unmatched.bucket <- NULL
+  } else {
+    out[is.na(out)]  <- unmatched.bucket
+  }
 
   levels <- unique(c(buckets, na.bucket, unmatched.bucket))
 
