@@ -63,8 +63,8 @@ test_that("fancycut syntax as factor", {
   x <- c(-1, seq.int(0, 1, 0.25), NA)
   y <- fancycut(
     x,
-    low = '[0,0.5]',
-    high = '(0.5, 1]',
+    low = ' [ 0 , 0.5 ]',
+    high = ' ( 0.5 , 1] ',
     out.as.factor = TRUE,
     na.bucket = 'N/A',
     unmatched.bucket = 'UNK'

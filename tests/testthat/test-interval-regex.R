@@ -39,7 +39,7 @@ pclose  <- '(\\)|\\])'
 psci    <- '[-+]?\\d*\\.?\\d+(?:[eE][-+]?\\d+)?'  # https://www.regular-expressions.info/floatingpoint.html
 pinf    <- '[-+]?Inf'
 pnum    <- paste0('((?:', psci, ')|(?:', pinf, '))')
-pint    <- paste0('^\\s*', popen, '\\s*', pnum, '\\s*', ',', '\\s*', pnum, '\\s*', pclose, '$')
+pint    <- paste0('^\\s*', popen, '\\s*', pnum, '\\s*', ',', '\\s*', pnum, '\\s*', pclose, '\\s*', '$')
 
 
 
@@ -59,7 +59,8 @@ well_formed_meaningful <- c(
   '(5, 10]',
   '(+234987, Inf)',
   '[-Inf,+Inf)',
-  '  (  1   ,   2  ]'
+  '  (  1   ,   2  ]',
+  '  (  1   ,   2   ]   '
 )
 
 badly_formed <- c(

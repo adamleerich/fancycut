@@ -179,7 +179,7 @@ wafflecut <- function(x, intervals, buckets = intervals,
 #   https://github.com/adamleerich/fancycut/issues/4
 
 parse_intervals <- function(intervals) {
-  rx <- "^\\s*(\\(|\\[)\\s*((?:[-+]?\\d*\\.?\\d+(?:[eE][-+]?\\d+)?)|(?:[-+]?Inf))\\s*,\\s*((?:[-+]?\\d*\\.?\\d+(?:[eE][-+]?\\d+)?)|(?:[-+]?Inf))\\s*(\\)|\\])$"
+  rx <- "^\\s*(\\(|\\[)\\s*((?:[-+]?\\d*\\.?\\d+(?:[eE][-+]?\\d+)?)|(?:[-+]?Inf))\\s*,\\s*((?:[-+]?\\d*\\.?\\d+(?:[eE][-+]?\\d+)?)|(?:[-+]?Inf))\\s*(\\)|\\])\\s*$"
   lindex <- regexec(rx, intervals)
   lmatch <- regmatches(intervals, lindex)
   nrows <- length(lmatch)
