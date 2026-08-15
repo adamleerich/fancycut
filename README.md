@@ -1,5 +1,9 @@
 # fancycut
 
+[![CRAN status](https://www.r-pkg.org/badges/version/fancycut)](https://CRAN.R-project.org/package=fancycut)
+[![CRAN downloads](https://cranlogs.r-pkg.org/badges/fancycut)](https://cran.r-project.org/package=fancycut)
+[![License: CC0-1.0](https://img.shields.io/badge/License-CC0%201.0-lightgrey.svg)](http://creativecommons.org/publicdomain/zero/1.0/)
+
 A fancy version of `base::cut()`.
 
 `cut()` forces every interval in a vector to use the same open/closed convention. `fancycut` lifts that restriction: you can mix left-open and right-open intervals, intervals closed on both ends, intervals open on both ends, and even single-point buckets, all in the same call. The range of the input doesn't have to be fully covered by your intervals either — unmatched values (and `NA`s) can be routed to their own buckets.
