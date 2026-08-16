@@ -1,1 +1,6 @@
-Provides a single function called fancycut.  The function allows for turning a numeric vector into a factor.  Instead of cut, however, it gives the user more control over how to specify the intervals.  They can be a mix of open/close, close/open, etc.  The function also allows trivial intervals, i.e. points, to be mapped to a factor level.  Additionally, the range of the numeric vector does not all have to be represented in the intervals given.
+Provides two functions fancycut and wafflecut, which essentially do the same thing, with slightly different syntax.
+These function allow for turning a numeric vector into a factor, like base cut
+However, unlike base cut, they give the user more control over how to specify the intervals.
+The intervals can be a mix of open/close, close/open, etc.
+The function also allows trivial intervals, i.e. points, to be mapped to a factor level.
+Additionally, it is OK if some values don't map to any buckets, and the user can specify an unmatched bucket.

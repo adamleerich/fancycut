@@ -1,13 +1,14 @@
 Package: fancycut
 Title: A Fancy Version of 'base::cut'
-Version: 0.1.3
+Version: 0.1.4
 Authors@R: c(
   person(given = "Adam", family = "Rich", email = "adam@adamleerich.com", role = c("aut", "cre", "cph"), comment = c(ORCID = "0009-0007-0992-1956")),
   person("Richie", "Cotton", email = "richierocks@gmail.com", role = "ctb")
   )
-Description: Provides the function fancycut() which is like cut() except
-  you can mix left open and right open intervals with point values,
-  intervals that are closed on both ends and intervals that are open on both ends.
+Description: 
+  Provides two functions fancycut and wafflecut, which essentially do the same thing, with slightly different syntax.
+  These function allow for turning a numeric vector into a factor, like base cut
+  However, unlike base cut, they give the user more control over how to specify the intervals.
 License: CC0
 RoxygenNote: 7.3.2
 Encoding: UTF-8

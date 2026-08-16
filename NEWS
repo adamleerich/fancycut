@@ -1,3 +1,11 @@
+fancycut v0.1.4 (Release date: 2026-08-16)
+===========================================
+
+  Changes:
+
+  * Corrected DESCRIPTION file to reflect that package has two functions, not one
+
+
 fancycut v0.1.3 (Release date: 2024-09-24)
 ===========================================
 
